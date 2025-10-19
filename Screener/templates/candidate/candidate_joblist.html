@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ job.title }} - SmartHire</title>
+  <link rel="stylesheet" href="{% static 'css/candidate/candidate_joblist.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="dashboard-header">
+    <div class="logo">SmartHire</div>
+    <nav>
+      <a href="{% url 'candidate' %}">Home</a>
+      <a href="{% url 'candidate_profile' %}">Profile</a>
+      <a href="{% url 'candidate_joblist' %}">Jobs</a>
+      <a href="{% url 'candidate_applications' %}">Applications</a>
+      <a href="{% url 'candidate_shortlist' %}">Shortlisted</a>
+      <a href="{% url 'candidate_notification' %}">Notifications</a>
+      <a href="{% url 'candidate_settings' %}">Settings</a>
+      <a href="{% url 'home' %}" class="btn-logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Job Details Section -->
+  <main class="dashboard-content">
+    <div class="job-details-container">
+      <div class="job-header">
+        <h1>job.title </h1>
+        <p class="company">company_name ·  job.location </p>
+      </div>
+
+      <div class="job-meta">
+        <span><i class="fa-solid fa-briefcase"></i>  job.job_type </span>
+        <span><i class="fa-solid fa-money-bill"></i>  job.salary </span>
+        <span><i class="fa-solid fa-clock"></i> Posted:  job.posted_date </span>
+      </div>
+
+      <hr>
+
+      <h2>Job Description</h2>
+      <p> job.description </p>
+
+      <h2>Responsibilities</h2>
+      <ul>
+        
+        <li>responsibility </li>
+        
+        <li>No responsibilities mentioned.</li>
+
+      </ul>
+
+      <h2>Requirements</h2>
+      <ul>
+        for requirement in job.requirements 
+        <li>requirement </li>
+        <li>No specific requirements.</li>
+      </ul>
+
+      <div class="job-buttons">
+        <a href="" class="btn-apply">Apply Now</a>
+        <a href="" class="btn-back">Back to Jobs</a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

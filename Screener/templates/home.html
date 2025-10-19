@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SmartHire — AI Job & Resume Platform</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">SmartHire</div>
+        <nav>
+          <a href="{% url 'signin' %}" class="btn btn-primary">Login</a>
+          <a href="{% url 'signup' %}" class="btn btn-ghost">Register</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+          <h1>Find Jobs & Hire Smarter with AI</h1>
+          <p>SmartHire connects job seekers with the best opportunities and helps recruiters shortlist top candidates efficiently with AI-powered insights.</p>
+          <a href="/register" class="btn btn-primary">Get Started</a>
+        </div>
+        <div class="hero-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw674EEOURio9H_Ld4dmgam0t-olS9tcO_8Q&s" alt="AI illustration" />
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <i class="fa-solid fa-briefcase fa-2x" style="color:#7c3aed;"></i>
+            <h4>Job Search</h4>
+            <p>Browse and apply for relevant jobs easily with AI recommendations.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-list-check fa-2x" style="color:#7c3aed;"></i>
+            <h4>Smart Shortlisting</h4>
+            <p>Recruiters can rank applicants by skills and experience efficiently.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-comment-dots fa-2x" style="color:#7c3aed;"></i>
+            <h4>Actionable Feedback</h4>
+            <p>Provide candidates feedback automatically to improve engagement.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-file-arrow-up fa-2x" style="color:#7c3aed;"></i>
+            <h4>ATS Integration</h4>
+            <p>Connect with your existing ATS and export shortlisted candidates easily.</p>
+        </div>
+    </section>
+
+    <section class="cta-footer">
+        <h3>Start your journey in hiring or finding the best jobs!</h3>
+        <a href="/register" class="btn btn-primary">Create Account</a>
+        <a href="/login" class="btn btn-ghost">Login</a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 SmartHire | <a href="/about">About</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy</a></p>
+    </footer>
+</body>
+</html>

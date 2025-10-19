@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications - SmartHire</title>
+  <link rel="stylesheet" href="{% static 'css/candidate/candidate_notification.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="dashboard-header">
+    <div class="logo">SmartHire</div>
+    <nav>
+      <a href="{% url 'candidate' %}">Home</a>
+      <a href="{% url 'candidate_profile' %}">Profile</a>
+      <a href="{% url 'candidate_joblist' %}">Jobs</a>
+      <a href="{% url 'candidate_applications' %}">Applications</a>
+      <a href="{% url 'candidate_shortlist' %}">Shortlisted</a>
+      <a href="{% url 'candidate_notification' %}">Notifications</a>
+      <a href="{% url 'candidate_settings' %}">Settings</a>
+      <a href="{% url 'home' %}" class="btn-logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-content">
+    <div class="notifications-container">
+      <h2>Notifications</h2>
+
+      <div class="notification-list">
+
+        <div class="notification-card">
+          <i class="fa-solid fa-bell"></i>
+          <div class="notification-text">
+            <p><strong>Interview Scheduled:</strong> Frontend Developer at Tech Solutions on 25th Oct, 2 PM</p>
+            <span class="time">2 hours ago</span>
+          </div>
+        </div>
+
+        <div class="notification-card">
+          <i class="fa-solid fa-bell"></i>
+          <div class="notification-text">
+            <p><strong>Job Recommendation:</strong> Backend Developer at DataCorp matches your profile.</p>
+            <span class="time">1 day ago</span>
+          </div>
+        </div>
+
+        <div class="notification-card">
+          <i class="fa-solid fa-bell"></i>
+          <div class="notification-text">
+            <p><strong>Application Update:</strong> Your application for UI/UX Designer has been rejected.</p>
+            <span class="time">3 days ago</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

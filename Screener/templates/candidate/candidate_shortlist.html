@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Applications - SmartHire</title>
+  <link rel="stylesheet" href="{% static 'css/candidate/candidate_shortlist.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="dashboard-header">
+    <div class="logo">SmartHire</div>
+    <nav>
+      <a href="{% url 'candidate' %}">Home</a>
+      <a href="{% url 'candidate_profile' %}">Profile</a>
+      <a href="{% url 'candidate_joblist' %}">Jobs</a>
+      <a href="{% url 'candidate_applications' %}">Applications</a>
+      <a href="{% url 'candidate_shortlist' %}">Shortlisted</a>
+      <a href="{% url 'candidate_notification' %}">Notifications</a>
+      <a href="{% url 'candidate_settings' %}">Settings</a>
+      <a href="{% url 'home' %}" class="btn-logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-content">
+    <div class="applications-container">
+      <h2>My Applications</h2>
+
+      <div class="application-list">
+
+        <div class="application-card">
+          <h3>Frontend Developer</h3>
+          <p class="company">Tech Solutions · Remote</p>
+          <p>Status: <span class="status pending">Pending</span></p>
+          <div class="app-actions">
+            <a href="#" class="btn-view">View Details</a>
+          </div>
+        </div>
+
+        <div class="application-card">
+          <h3>Backend Developer</h3>
+          <p class="company">DataCorp · India</p>
+          <p>Status: <span class="status accepted">Accepted</span></p>
+          <div class="app-actions">
+            <a href="#" class="btn-view">View Details</a>
+          </div>
+        </div>
+
+        <div class="application-card">
+          <h3>UI/UX Designer</h3>
+          <p class="company">DesignPro · Remote</p>
+          <p>Status: <span class="status rejected">Rejected</span></p>
+          <div class="app-actions">
+            <a href="#" class="btn-view">View Details</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

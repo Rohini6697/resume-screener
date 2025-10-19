@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartHire Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/candidate/candidate.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="dashboard-header">
+    <div class="logo">SmartHire</div>
+    <nav>
+      <a href="{% url 'candidate' %}">Home</a>
+      <a href="{% url 'candidate_profile' %}">Profile</a>
+      <a href="{% url 'candidate_joblist' %}">Jobs</a>
+      <a href="{% url 'candidate_applications' %}">Applications</a>
+      <a href="{% url 'candidate_shortlist' %}">Shortlisted</a>
+      <a href="{% url 'candidate_notification' %}">Notifications</a>
+      <a href="{% url 'candidate_settings' %}">Settings</a>
+      <a href="{% url 'home' %}" class="btn-logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-content">
+    <div class="dashboard-overview">
+      <h2>Welcome, {{ user.username }}</h2>
+      <div class="stats-cards">
+        <div class="card">
+          <i class="fa-solid fa-briefcase"></i>
+          <p>Jobs Applied</p>
+          <h3>12</h3>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-calendar-check"></i>
+          <p>Interviews Scheduled</p>
+          <h3>3</h3>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-star"></i>
+          <p>Profile Completion</p>
+          <h3>85%</h3>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-lightbulb"></i>
+          <p>AI Recommended Jobs</p>
+          <h3>5</h3>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - SmartHire</title>
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Create Account</h2>
+      <p>Join SmartHire and start finding jobs or hiring top talent!</p>
+      
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ form.username.label_tag }} {{ form.username }}</p>
+        <p>{{ form.email.label_tag }} {{ form.email }}</p>
+        <p>{{ form.password.label_tag }} {{ form.password }}</p>
+        <p>{{ form.confirm_password.label_tag }} {{ form.confirm_password }}</p>
+        <p>{{ form.full_name.label_tag}} {{form.full_name}}</p>
+        <p>{{ form.role.label_tag }} {{ form.role }}</p>
+        <p>{{ form.whatsapp_number.label_tag }} {{ form.whatsapp_number }}</p>
+        <p>{{ form.resume.label_tag }} {{ form.resume }}</p>
+        <button type="submit">Sign Up</button>
+      </form>
+
+
+      <p class="auth-footer">Already have an account? <a href="{% url 'signin' %}">Sign In</a></p>
+      <a href="{% url 'home' %}">Go Back</a>
+    </div>
+  </div>
+</body>
+</html>

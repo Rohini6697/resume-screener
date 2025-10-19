@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details - SmartHire</title>
+  <link rel="stylesheet" href="{% static 'css/candidate/candidate_applications.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="dashboard-header">
+    <div class="logo">SmartHire</div>
+    <nav>
+      <a href="{% url 'candidate' %}">Home</a>
+      <a href="{% url 'candidate_profile' %}">Profile</a>
+      <a href="{% url 'candidate_joblist' %}">Jobs</a>
+      <a href="{% url 'candidate_applications' %}">Applications</a>
+      <a href="{% url 'candidate_shortlist' %}">Shortlisted</a>
+      <a href="{% url 'candidate_notification' %}">Notifications</a>
+      <a href="{% url 'candidate_settings' %}">Settings</a>
+      <a href="{% url 'home' %}" class="btn-logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Job Details Section -->
+  <main class="dashboard-content">
+    <div class="job-details-container">
+      <div class="job-header">
+        <h1>Frontend Developer</h1>
+        <p class="company">Tech Solutions · Remote</p>
+      </div>
+
+      <div class="job-meta">
+        <span><i class="fa-solid fa-briefcase"></i> Full-Time</span>
+        <span><i class="fa-solid fa-money-bill"></i> $60,000 - $80,000</span>
+        <span><i class="fa-solid fa-clock"></i> Posted: Oct 19, 2025</span>
+      </div>
+
+      <hr>
+
+      <h2>Job Description</h2>
+      <p>We are looking for a talented frontend developer to join our team. You will work with designers and backend developers to build modern web applications.</p>
+
+      <h2>Responsibilities</h2>
+      <ul>
+        <li>Develop responsive web pages</li>
+        <li>Collaborate with the design team</li>
+        <li>Maintain and improve existing codebase</li>
+      </ul>
+
+      <h2>Requirements</h2>
+      <ul>
+        <li>Proficient in HTML, CSS, and JavaScript</li>
+        <li>Experience with React or Vue.js</li>
+        <li>Good problem-solving skills</li>
+      </ul>
+
+      <div class="job-buttons">
+        <a href="#" class="btn-apply">Apply Now</a>
+        <a href="joblist.html" class="btn-back">Back to Jobs</a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

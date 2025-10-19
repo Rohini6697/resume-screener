@@ -1,0 +1,141 @@
+/* Dark Theme Colors */
+:root {
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --text: #e0e0e0;
+  --muted: #aaaaaa;
+  --accent: #7c3aed;
+  --hover: #3b3b3b;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  margin: 0;
+  color: var(--text);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.dashboard-header nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.dashboard-header nav a:hover {
+  color: var(--accent);
+}
+
+.dashboard-header nav .btn-logout {
+  background: var(--accent);
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.dashboard-header nav a:hover,
+.dashboard-header nav .active {
+  color: var(--accent);
+}
+
+.dashboard-content {
+  padding: 40px;
+}
+
+.job-details-container {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.job-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+.company {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.job-meta {
+  margin: 10px 0;
+  color: var(--muted);
+}
+
+.job-meta span {
+  margin-right: 20px;
+  font-size: 0.95rem;
+}
+
+.job-meta i {
+  margin-right: 5px;
+  color: var(--accent);
+}
+
+h2 {
+  margin-top: 20px;
+  color: var(--text);
+}
+
+ul {
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+hr {
+  border: 0.5px solid #333;
+  margin: 20px 0;
+}
+
+.job-buttons {
+  margin-top: 20px;
+}
+
+.btn-apply, .btn-back {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.btn-apply {
+  background: var(--accent);
+  color: #fff;
+  margin-right: 10px;
+}
+
+.btn-apply:hover {
+  background: #5c23b0;
+}
+
+.btn-back {
+  background: #333;
+  color: var(--text);
+}
+
+.btn-back:hover {
+  background: var(--hover);
+}
