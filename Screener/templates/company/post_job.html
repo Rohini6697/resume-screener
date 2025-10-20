@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post a Job - SmartHire</title>
+  <link rel="stylesheet" href="{% static 'css/company/post_job.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="dashboard-wrapper">
+    <div class="sidebar">
+      <div class="logo">SmartHire</div>
+      <nav>
+        <a href="{% url 'company' %}"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="{% url 'company_profile' %}" class="active"><i class="fas fa-building"></i> Company Profile</a>
+        <a href="{% url 'post_job' %}"><i class="fas fa-briefcase"></i> Post a Job</a>
+        <a href="/company/jobs/manage"><i class="fa-solid fa-list"></i> Manage Jobs</a>
+        <a href="/company/settings"><i class="fa-solid fa-gear"></i> Settings</a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <h1>Post a New Job</h1>
+      <p>Fill in the details to create a job posting for candidates.</p>
+
+      <form method="POST" action="/company/jobs/post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+          <label for="title">Job Title</label>
+          <input type="text" id="title" name="title" placeholder="Senior Software Engineer" required>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <select id="location" name="location" required>
+            <option value="">Select location</option>
+            <option value="Remote">Remote</option>
+            <option value="Office">Office</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="job_type">Job Type</label>
+          <select id="job_type" name="job_type" required>
+            <option value="">Select job type</option>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Internship">Internship</option>
+            <option value="Contract">Contract</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="experience">Experience Required</label>
+          <input type="text" id="experience" name="experience" placeholder="2-5 years" required>
+        </div>
+
+        <div class="form-group">
+          <label for="salary">Salary Range</label>
+          <input type="text" id="salary" name="salary" placeholder="₹5,00,000 - ₹8,00,000" required>
+        </div>
+
+        <div class="form-group">
+          <label for="skills">Required Skills</label>
+          <input type="text" id="skills" name="skills" placeholder="Python, Django, React" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Job Description & Responsibilities</label>
+          <textarea id="description" name="description" placeholder="Write the job responsibilities here..." rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">Post Job</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

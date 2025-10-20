@@ -1,0 +1,105 @@
+/* ===== Variables ===== */
+:root {
+  --bg: #0f1724;
+  --card: #111827;
+  --muted: #9aa4b2;
+  --accent: #7c3aed;
+  --glass: rgba(255,255,255,0.03);
+  --success: #10b981;
+  --danger: #ef4444;
+  --maxw: 1200px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: dark;
+}
+
+/* ===== Layout ===== */
+* { box-sizing: border-box; }
+body, html { margin: 0; height: 100%; background: var(--bg); color: #e6eef8; }
+.app-shell { display: flex; min-height: 100vh; max-width: 1400px; margin: 0 auto; }
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 28px 18px;
+  box-shadow: 6px 0 20px rgba(2,6,23,0.6);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: white;
+}
+
+.side-nav a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.side-nav a i { width: 18px; text-align: center; }
+.side-nav a.active, .side-nav a:hover { background: var(--glass); color: white; }
+
+/* ===== Main Content ===== */
+.main { flex: 1; display: flex; flex-direction: column; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 28px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.topbar h1 { margin: 0; font-size: 22px; }
+.profile { display: flex; align-items: center; gap: 10px; color: var(--muted); }
+.profile i { font-size: 28px; }
+
+/* ===== Content ===== */
+.content { padding: 22px; max-width: var(--maxw); margin: 0 auto; width: 100%; }
+
+.profile-form-container {
+  background: var(--card);
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ===== Form Styling ===== */
+.form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
+.form-group label { font-weight: 600; margin-bottom: 6px; color: var(--muted); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  font-size: 15px;
+  background: transparent;
+  color: #e6eef8;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--accent); outline: none; }
+
+/* ===== Button ===== */
+.btn-save {
+  background: linear-gradient(90deg, var(--accent), #4f46e5);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.btn-save:hover { background: linear-gradient(90deg, #4f46e5, var(--accent)); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+}

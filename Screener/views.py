@@ -66,7 +66,11 @@ def candidate_settings(request):
 
 
 def company(request):
-    return render(request,'company.html')
+    return render(request,'company/company.html')
+def company_profile(request):
+    return render(request,'company/company_profile.html')
+def post_job(request):
+    return render(request,'company/post_job.html')
 
 
 def admin(request):
