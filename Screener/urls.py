@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
@@ -19,4 +21,10 @@ urlpatterns = [
     path('candidate_details/',views.candidate_details,name='candidate_details'),
     path('company_profile/',views.company_profile,name='company_profile'),
     path('post_job/',views.post_job,name='post_job'),
-]
+
+
+
+
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

@@ -1,5 +1,5 @@
 from .models import Candidates, Profile
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import authenticate, login as auth_login
 
 from .forms import UserForm
@@ -66,6 +66,20 @@ def candidate_settings(request):
     return render(request,'candidate/candidate_settings.html')
 
 def candidate_details(request):
+    candidates = get_object_or_404(Profile,id = candidate_id)
+    candidates,created = Candidates.objects.get_or_create(candidates=candidates)
+
+    if request.method == 'POST':
+        candidates.full_name = request.POST.get('fullName')
+        candidates.phone = request.POST.get('contact')
+        candidates.preferred_location = request.POST.get('location')
+        candidates.skills = request.POST.get('skills')
+        candidates.patient_gender = request.POST.get('gender')
+        
+        candidates.experience = request.POST.get('experience')
+        candidates.resume = request.POST.get('resume')
+        candidates.save()
+        return redirect('patient_dashboard')
     return render(request,'candidate/candidate_details.html')
 
 
