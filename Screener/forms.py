@@ -4,11 +4,9 @@ from django.contrib.auth.models import User
 
 
 class UserForm(forms.ModelForm):
-    full_name = forms.CharField(widget=forms.TextInput)
     password = forms.CharField(widget=forms.PasswordInput)
     confirm_password = forms.CharField(widget=forms.PasswordInput)
     role = forms.ChoiceField(choices = Profile.ROLL_CHOICES)
-    whatsapp_number = forms.CharField(required=True,widget=forms.TextInput)
 
 
     class Meta:

@@ -1,4 +1,4 @@
-from .models import Profile
+from .models import Candidates, Profile
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login as auth_login
 
@@ -19,7 +19,6 @@ def user_register(request):
 
             Profile.objects.create(user = user,
                                    role = form.cleaned_data['role'],
-                                   whatsapp_number = form.cleaned_data['whatsapp_number'],
                                    )
             return redirect('signin')
     else:
@@ -39,7 +38,11 @@ def user_login(request):
             else :
                 role = user.profile.role
                 if role == 'candidate':
-                    return render(request,'candidate/candidate.html')
+                    try:
+                        candidate = user.profile.candidates
+                        return redirect('candidate')
+                    except Candidates.DoesNotExist:
+                        return render(request,'candidate/candidate_details.html')
                 elif role == 'company':
                     return render(request,'company/company.html')
         else:
@@ -61,6 +64,9 @@ def candidate_notification(request):
     return render(request,'candidate/candidate_notification.html')
 def candidate_settings(request):
     return render(request,'candidate/candidate_settings.html')
+
+def candidate_details(request):
+    return render(request,'candidate/candidate_details.html')
 
 
 

@@ -33,23 +33,15 @@
       <div class="profile-card">
         <form method="POST" action="/update_profile" enctype="multipart/form-data">
 
-          <div class="profile-photo-section">
-            <img src="default-avatar.png" alt="Profile Photo" class="profile-photo"/>
-            <label class="upload-btn">
-              <input type="file" name="photo" hidden>
-              <i class="fa-solid fa-camera"></i> Change Photo
-            </label>
-          </div>
-
           <div class="profile-fields">
             <label>Full Name</label>
-            <input type="text" name="full_name" value="" required>
+            <input type="text" name="full_name" value="{{request.user.profile.full_name}}" required>
 
             <label>Email</label>
-            <input type="email" name="email" value="" required>
+            <input type="email" name="email" value="{{request.user.email}}" required>
 
             <label>Phone</label>
-            <input type="text" name="phone" value="">
+            <input type="text" name="phone" value="{{request.user.profile.whatsapp_number}}">
 
             <label>Upload Resume (PDF)</label>
             <input type="file" name="resume">
