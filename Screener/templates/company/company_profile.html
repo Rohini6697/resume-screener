@@ -30,7 +30,7 @@
                 <h1>Edit Company Profile</h1>
                 <div class="profile">
                     <i class="fas fa-user-circle"></i>
-                    <span>Company Name</span>
+                    <span>{{request.user.profile.company.name}}</span>
                 </div>
             </div>
 
@@ -47,22 +47,22 @@
 
                         <div class="form-group">
                             <label>Company Name</label>
-                            <input type="text" name="name" placeholder="Enter company name" required>
+                            <input type="text" value = {{request.user.profile.company.name}} name="name" placeholder="Enter company name" required>
                         </div>
 
                         <div class="form-group">
                             <label>Website</label>
-                            <input type="url" name="website" placeholder="https://company.com">
+                            <input type="url" value = {{request.user.profile.company.website}} name="website" placeholder="https://company.com">
                         </div>
 
                         <div class="form-group">
                             <label>Industry</label>
-                            <input type="text" name="industry" placeholder="e.g., Software Development">
+                            <input type="text" value = {{request.user.profile.company.industry}} name="industry" placeholder="e.g., Software Development">
                         </div>
 
                         <div class="form-group">
                             <label>Company Size</label>
-                            <select name="size">
+                            <select value = {{request.user.profile.company.size}} name="size">
                                 <option value="">Select</option>
                                 <option>1-10 employees</option>
                                 <option>10-50 employees</option>
@@ -74,22 +74,22 @@
 
                         <div class="form-group">
                             <label>Headquarters</label>
-                            <input type="text" name="location" placeholder="City, Country">
+                            <input value = {{request.user.profile.company.location}} type="text" name="location" placeholder="City, Country">
                         </div>
 
                         <div class="form-group">
                             <label>About Company</label>
-                            <textarea name="about" rows="4" placeholder="Describe your company..."></textarea>
+                            <textarea  name="about" rows="4" placeholder="Describe your company...">{{request.user.profile.company.about}}</textarea>
                         </div>
 
                         <div class="form-group">
                             <label>LinkedIn</label>
-                            <input type="url" name="linkedin" placeholder="https://linkedin.com/company">
+                            <input value = {{request.user.profile.company.linkedin}} type="url" name="linkedin" placeholder="https://linkedin.com/company">
                         </div>
 
                         <div class="form-group">
                             <label>Twitter</label>
-                            <input type="url" name="twitter" placeholder="https://twitter.com/company">
+                            <input value = {{request.user.profile.company.twitter}} type="url" name="twitter" placeholder="https://twitter.com/company">
                         </div>
 
                         <button type="submit" class="btn-save">Save Profile</button>

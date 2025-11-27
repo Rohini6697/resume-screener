@@ -10,39 +10,45 @@
 </head>
 <body>
   <div class="dashboard-wrapper">
+    
+    <!-- Sidebar -->
     <div class="sidebar">
       <div class="logo">SmartHire</div>
       <nav>
         <a href="{% url 'company' %}"><i class="fas fa-home"></i> Dashboard</a>
         <a href="{% url 'company_profile' %}" class="active"><i class="fas fa-building"></i> Company Profile</a>
         <a href="{% url 'post_job' %}"><i class="fas fa-briefcase"></i> Post a Job</a>
-        <a href="/company/jobs/manage"><i class="fa-solid fa-list"></i> Manage Jobs</a>
-        <a href="/company/settings"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="#"><i class="fa-solid fa-list"></i> Manage Jobs</a>
+        <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
       </nav>
     </div>
 
+    <!-- Main content -->
     <div class="main-content">
       <h1>Post a New Job</h1>
       <p>Fill in the details to create a job posting for candidates.</p>
 
-      <form method="POST" action="/company/jobs/post">
+      <form method="POST" action="{% url 'post_job' %}">
         {% csrf_token %}
         
+        <!-- Job Title -->
         <div class="form-group">
           <label for="title">Job Title</label>
           <input type="text" id="title" name="title" placeholder="Senior Software Engineer" required>
         </div>
 
+        <!-- Job Location -->
         <div class="form-group">
           <label for="location">Location</label>
           <select id="location" name="location" required>
             <option value="">Select location</option>
             <option value="Remote">Remote</option>
-            <option value="Office">Office</option>
+            <option value="Office">On Site</option>
             <option value="Hybrid">Hybrid</option>
           </select>
         </div>
 
+        <!-- Job Type -->
         <div class="form-group">
           <label for="job_type">Job Type</label>
           <select id="job_type" name="job_type" required>
@@ -53,21 +59,41 @@
           </select>
         </div>
 
+        <!-- Experience Type -->
         <div class="form-group">
-          <label for="experience">Experience Required</label>
-          <input type="text" id="experience" name="experience" placeholder="2-5 years" required>
+          <label for="experience_type">Experience Type</label>
+          <select id="experience_type" name="experience_type" required>
+            <option value="">Select</option>
+            <option value="Fresher">Fresher</option>
+            <option value="Experienced">Experienced Professional</option>
+          </select>
         </div>
 
+        <!-- Show only if Experienced -->
+        <div class="form-group" id="experience-range" style="display:none;">
+          <label>Experience Range (Years)</label>
+          <div style="display:flex; gap:10px;">
+            <input type="number" name="min_experience" placeholder="Min" min="0">
+            <input type="number" name="max_experience" placeholder="Max" min="0">
+          </div>
+        </div>
+
+        <!-- Salary Range -->
         <div class="form-group">
           <label for="salary">Salary Range</label>
-          <input type="text" id="salary" name="salary" placeholder="₹5,00,000 - ₹8,00,000" required>
+          <div style="display:flex; gap:10px;">
+            <input type="number" name="min_salary" placeholder="Min Salary" min="0">
+            <input type="number" name="max_salary" placeholder="Max Salary" min="0">
+          </div>
         </div>
 
+        <!-- Skills Required -->
         <div class="form-group">
           <label for="skills">Required Skills</label>
           <input type="text" id="skills" name="skills" placeholder="Python, Django, React" required>
         </div>
 
+        <!-- Description -->
         <div class="form-group">
           <label for="description">Job Description & Responsibilities</label>
           <textarea id="description" name="description" placeholder="Write the job responsibilities here..." rows="6" required></textarea>
@@ -77,5 +103,24 @@
       </form>
     </div>
   </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const experienceType = document.getElementById("experience_type");
+      const expRange = document.getElementById("experience-range");
+
+      function toggleExperienceFields() {
+        if (experienceType.value === "Experienced") {
+          expRange.style.display = "block";
+        } else {
+          expRange.style.display = "none";
+        }
+      }
+
+      experienceType.addEventListener("change", toggleExperienceFields);
+    });
+  </script>
+
 </body>
 </html>

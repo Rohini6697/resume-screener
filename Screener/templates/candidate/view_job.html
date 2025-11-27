@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ job.title }} - SmartHire</title>
+
+  <link rel="stylesheet" href="{% static 'css/candidate/view_job.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+<header class="dashboard-header">
+  <div class="logo">SmartHire</div>
+  <nav>
+    <a href="{% url 'candidate' %}">Home</a>
+    <a href="{% url 'candidate_profile' %}">Profile</a>
+    <a class="active" href="{% url 'candidate_joblist' %}">Jobs</a>
+    <a href="{% url 'candidate_applications' %}">Applications</a>
+    <a href="{% url 'candidate_shortlist' %}">Shortlisted</a>
+    <a href="{% url 'candidate_notification' %}">Notifications</a>
+    <a href="{% url 'candidate_settings' %}">Settings</a>
+    <a href="{% url 'home' %}" class="btn-logout">Logout</a>
+  </nav>
+</header>
+
+<main class="dashboard-content">
+  <div class="job-details-container">
+
+    <div class="job-header">
+      <h1>{{ job.title }}</h1>
+      <p class="company">{{ job.company.name }} · {{ job.get_location_display }}</p>
+    </div>
+
+    <div class="job-meta">
+      <span><i class="fa-solid fa-briefcase"></i> {{ job.get_job_type_display }}</span>
+      <span><i class="fa-solid fa-user"></i> {{ job.get_experience_type_display }}</span>
+
+      {% if job.min_experience %}
+      <span><i class="fa-solid fa-chart-line"></i> {{ job.min_experience }} - {{ job.max_experience }} years</span>
+      {% endif %}
+
+      {% if job.min_salary %}
+      <span><i class="fa-solid fa-money-bill"></i> ₹{{ job.min_salary }} - ₹{{ job.max_salary }}</span>
+      {% endif %}
+
+      <span><i class="fa-solid fa-clock"></i> Posted: {{ job.created_at|date:"M d, Y" }}</span>
+    </div>
+
+    <hr>
+
+    <h2>Description</h2>
+    <p class="job-description">{{ job.description }}</p>
+
+    <h2>Required Skills</h2>
+    <p class="skills">{{ job.skills }}</p>
+
+    <hr>
+
+    <div class="job-buttons">
+      <a href="#" class="btn-apply">Apply Now</a>
+      <a href="{% url 'candidate_joblist' %}" class="btn-back">Back to Jobs</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

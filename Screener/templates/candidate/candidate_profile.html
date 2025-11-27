@@ -35,13 +35,13 @@
 
           <div class="profile-fields">
             <label>Full Name</label>
-            <input type="text" name="full_name" value="{{request.user.profile.full_name}}" required>
+            <input type="text" name="full_name" value="{{request.user.profile.candidates.full_name}}" required>
 
             <label>Email</label>
             <input type="email" name="email" value="{{request.user.email}}" required>
 
             <label>Phone</label>
-            <input type="text" name="phone" value="{{request.user.profile.whatsapp_number}}">
+            <input type="text" name="phone" value="{{request.user.profile.candidates.phone}}">
 
             <label>Upload Resume (PDF)</label>
             <input type="file" name="resume">

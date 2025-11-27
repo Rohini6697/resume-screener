@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Company Profile - SmartHire</title>
+
+    <link rel="stylesheet" href="{% static 'css/company/company_details.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="form-box">
+
+        <h1>Complete Your Company Profile</h1>
+        <p class="subtitle">Please fill in the details to continue</p>
+
+        <form action="{% url 'company_details' request.user.profile.id %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Company Logo</label>
+                <input type="file" name="logo">
+            </div>
+
+            <div class="form-group">
+                <label>Company Name <span>*</span></label>
+                <input type="text" name="name" placeholder="Enter your company name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Website</label>
+                <input type="url" name="website" placeholder="https://yourcompany.com">
+            </div>
+
+            <div class="form-group">
+                <label>Industry</label>
+                <input type="text" name="industry" placeholder="e.g., IT Services, Healthcare">
+            </div>
+
+            <div class="form-group">
+                <label>Company Size</label>
+                <select name="size">
+                    <option value="">Select size</option>
+                    <option>1-10 employees</option>
+                    <option>10-50 employees</option>
+                    <option>50-200 employees</option>
+                    <option>200-500 employees</option>
+                    <option>500+ employees</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Headquarters</label>
+                <input type="text" name="location" placeholder="City, Country">
+            </div>
+
+            <div class="form-group">
+                <label>About Company</label>
+                <textarea name="about" rows="4" placeholder="Write a short description about your company..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>LinkedIn</label>
+                <input type="url" name="linkedin" placeholder="https://linkedin.com/company">
+            </div>
+
+            <div class="form-group">
+                <label>Twitter</label>
+                <input type="url" name="twitter" placeholder="https://twitter.com/company">
+            </div>
+
+            <button type="submit" class="btn-save">Submit Profile</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

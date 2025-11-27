@@ -11,14 +11,12 @@
     <div class="container">
         <h2>Job Details Form</h2>
 
-        <form id="jobForm" method="POST" enctype="multipart/form-data">
+        <form id="jobForm" method="POST" enctype="multipart/form-data" action="{% url 'candidate_details' request.user.profile.id %}">
+
             {% csrf_token %}
 
             <label>Full Name</label>
             <input type="text" id="fullname" name="fullname" required>
-
-            <label>Email</label>
-            <input type="email" id="email" name="email" required>
 
             <label>Phone</label>
             <input type="text" id="phone" name="phone">
